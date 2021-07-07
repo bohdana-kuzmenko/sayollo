@@ -1,0 +1,2 @@
+class BaseRepo(object):
+    pass

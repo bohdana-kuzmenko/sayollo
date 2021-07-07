@@ -1,0 +1,5 @@
+marshmallow
+sqlalchemy
+flask
+flask-restful
+requests
