@@ -4,7 +4,7 @@ from flask_restful import Resource
 from app.application.flask.helpers.response import make_custom_response
 from app.application.services.sdk_service import SDKService
 from app.application.services.user_service import UserService
-from app.domain.entities.ad_request import AdRequestSchema
+from app.domain.entities.request import RequestSchema
 
 
 class ImpressionView(Resource):
@@ -16,7 +16,7 @@ class ImpressionView(Resource):
 
     @make_custom_response
     def get(self):
-        ad_request = AdRequestSchema().load(request.args)
+        ad_request = RequestSchema().load(request.args)
         self.sdk_service.increment(
             ad_request.get('sdk_version'), self.request_type)
         self.user_service.increment(

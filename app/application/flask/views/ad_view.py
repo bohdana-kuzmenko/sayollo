@@ -5,7 +5,7 @@ import requests
 from app.application.flask.helpers.response import make_custom_response
 from app.application.services.sdk_service import SDKService
 from app.application.services.user_service import UserService
-from app.domain.entities.ad_request import AdRequestSchema
+from app.domain.entities.request import RequestSchema
 
 
 class AdView(Resource):
@@ -20,7 +20,7 @@ class AdView(Resource):
         api_url = ('https://6u3td6zfza.execute-api.us-east-2.amazonaws.com/'
                    'prod/ad/vast')
         response = requests.request('get', api_url)
-        ad_request = AdRequestSchema().load(request.args)
+        ad_request = RequestSchema().load(request.args)
         self.sdk_service.increment(
             ad_request.get('sdk_version'), self.request_type)
         self.user_service.increment(

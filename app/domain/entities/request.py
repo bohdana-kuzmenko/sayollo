@@ -4,7 +4,7 @@ from marshmallow import fields, Schema, EXCLUDE
 
 
 @dataclass
-class AdRequest(object):
+class Request(object):
     sdk_version: str
     session_id: str
     platform: str
@@ -12,7 +12,7 @@ class AdRequest(object):
     country_code: str
 
 
-class AdRequestSchema(Schema):
+class RequestSchema(Schema):
     class Meta:
         index_errors = True
         unknown = EXCLUDE
